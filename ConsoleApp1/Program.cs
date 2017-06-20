@@ -17,9 +17,13 @@ namespace ConsoleApp1
             List<Wifimodel> fileList = new List<Wifimodel>();
             string json = File.ReadAllText("wifiModuleParameters.json");
             Dictionary<string, dynamic> jsonDict = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(json);
-            dynamic k = "";
+            dynamic k;
             jsonDict.TryGetValue("Redpie", out k);
-            Trace.WriteLine("tets");
+            string innerJson = @k.ToString();
+            Dictionary<string, string> inner = JsonConvert.DeserializeObject<Dictionary<string, string>>(innerJson);
+            String p;
+            inner.TryGetValue("suffix_String", out p);
+            Trace.WriteLine(p);
             
         }
 
