@@ -13,8 +13,6 @@ namespace ConsoleApp1
     {
         static void loadJSON()
         {
-
-            List<Wifimodel> fileList = new List<Wifimodel>();
             string json = File.ReadAllText("wifiModuleParameters.json");
             Dictionary<string, dynamic> jsonDict = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(json);
             dynamic k;
@@ -30,24 +28,6 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             loadJSON();
-        }
-    }
-
-    class Wifimodel
-    {
-        public string name;
-        public string suffix_String;
-        public string set_Operation_Mode;
-
-        public Wifimodel(string suffix_String, string set_Operation_Mode)
-        {
-            this.suffix_String = suffix_String;
-            this.set_Operation_Mode = set_Operation_Mode;
-            Console.WriteLine(this.suffix_String);
-            Trace.WriteLine(this.suffix_String);
-            Trace.WriteLine("now op mode");
-            Console.WriteLine(this.set_Operation_Mode);
-            Trace.WriteLine(this.set_Operation_Mode);
         }
     }
 }
