@@ -15,13 +15,18 @@ namespace ConsoleApp1
         {
             string json = File.ReadAllText("wifiModuleParameters.json");
             Dictionary<string, dynamic> jsonDict = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(json);
-            dynamic k;
+            string[] sad = jsonDict.Keys.ToArray();
+            for(int i = 0; i < sad.Length; i++)
+            {
+                Trace.WriteLine(sad[i]);
+            }
+            dynamic k; 
             jsonDict.TryGetValue("Redpie", out k);
             string innerJson = @k.ToString();
             Dictionary<string, string> inner = JsonConvert.DeserializeObject<Dictionary<string, string>>(innerJson);
             String p;
             inner.TryGetValue("suffix_String", out p);
-            Trace.WriteLine(p);
+            //Trace.WriteLine(p);
             
         }
 
